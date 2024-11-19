@@ -1,0 +1,25 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: sample-pod
+spec:
+  initContainers:
+    - name: init-container-1
+      image: nginx
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c", "--"]
+      args: ["sleep 7"]
+    - name: init-container-2
+      image: ruby
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c", "--"]
+      args: ["sleep 7"]
+    - name: init-container-3
+      image: python
+      imagePullPolicy: Always
+      command: ["/bin/bash", "-c", "--"]
+      args: ["sleep 7"]
+
+  containers:
+    - name: main-pod
+      image: nginx
